@@ -1,15 +1,18 @@
-import mysql from 'db/mysql';
 import {
-  CreateOptions,
-  DataTypes,
   InferAttributes,
   InferCreationAttributes,
+  CreateOptions,
+  DataTypes,
   Model,
 } from 'sequelize';
+import { USERNAME_MAX } from 'verify/user.verify';
+import mysql from '../db/mysql';
+
+type UserCreateOmit = 'id' | 'updatedAt' | 'createdAt';
 
 class User extends Model<
   InferAttributes<User>,
-  InferCreationAttributes<User, { omit: 'id' | 'updatedAt' | 'createdAt' }>
+  InferCreationAttributes<User, { omit: UserCreateOmit }>
 > {
   declare id: CreateOptions<number>;
   declare username: string;
@@ -22,14 +25,16 @@ User.init(
   {
     id: {
       primaryKey: true,
-      type: DataTypes.NUMBER,
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
     },
     username: {
-      type: new DataTypes.STRING(128),
+      type: new DataTypes.CHAR(USERNAME_MAX),
       allowNull: false,
+      unique: true,
     },
     password: {
-      type: new DataTypes.STRING(128),
+      type: DataTypes.CHAR,
       allowNull: false,
     },
     createdAt: DataTypes.DATE,
@@ -40,5 +45,11 @@ User.init(
     tableName: 'user',
   }
 );
+
+export type UserCreateAttr = InferCreationAttributes<
+  User,
+  { omit: UserCreateOmit }
+>;
+export type UserAttr = InferCreationAttributes<User>;
 
 export default User;

@@ -41,7 +41,7 @@ module.exports = {
     // 禁止多余的分号：关闭。  PS：打开后，某些大括号结束加分号会报错
     '@typescript-eslint/no-extra-semi': ['off'],
     // 检查函数是否有返回值：警告。   PS：有些老代码没有返回值，历史包袱重，暂时不强制报错
-    '@typescript-eslint/explicit-module-boundary-types': ['warn'],
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
     // 禁止给变量赋值为 this：关闭。
     '@typescript-eslint/no-this-alias': ['off'],
     // 禁止使用 requires：关闭。

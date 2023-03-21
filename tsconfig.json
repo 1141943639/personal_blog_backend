@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+     // sequelize-typescript 需要es6及以上
     "target": "es6",
     "lib": [
       "esnext"
@@ -8,6 +9,10 @@
     //   "./node_modules/@types",
     //   "./src/types"
     // ],
+    // sequelize-typescript 需要
+    "experimentalDecorators": true,
+     // sequelize-typescript 需要
+    "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

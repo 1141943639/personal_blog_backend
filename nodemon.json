@@ -10,7 +10,8 @@
     "*.spec.ts",
     "fixtures/*",
     "test/**/*",
-    "docs/*"
+    "docs/*",
+    "*.sqlite"
   ],
   "events": {
     "restart": ""
