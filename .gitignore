@@ -8,6 +8,7 @@ node_modules/
 dist/
 build/
 /sqliteDB.sqlite
+upload/
 
 # Compiled Java class files
 *.class
